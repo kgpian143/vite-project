@@ -13,6 +13,7 @@ function App() {
     const interval = setInterval( async() => {
       const res = await fetch('https://barbero-backend.onrender.com/api/v1')
       // const data = await res.json()
+      setCount(count + 1);
       console.log('data:', res)
       console.log('This will run every 20 seconds!');
     }, 10000);
