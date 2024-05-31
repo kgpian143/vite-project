@@ -7,18 +7,19 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  //  rendering of the component after every 3 seconds 
+  
   useEffect(() => {
-    console.log('count:', count)
-    
-    const sendReq = async () => {
+    const interval = setInterval( async() => {
       const res = await fetch('https://barbero-backend.onrender.com/api/v1')
       // const data = await res.json()
       console.log('data:', res)
-      //  sleep for 10 seconds
-      await new Promise((resolve) => setTimeout(resolve, 10000));
-    }
-    sendReq();
-  })
+      console.log('This will run every 20 seconds!');
+    }, 10000);
+    return () => clearInterval(interval);
+  
+  }, []);
+
 
   return (
     <>
